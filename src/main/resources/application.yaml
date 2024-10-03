@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: homework
+  jpa:
+    database: default
+  batch:
+    jdbc:
+      initialize-schema: always
+
+datasource:
+  starships:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/starships_db
+    jdbcUrl: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/starships_db
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASS:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL8Dialect
+
+  vessels:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/vessels_db
+    jdbcUrl: jdbc:postgresql://${POSTGRES_HOST:localhost}:${POSTGRES_PORT:5432}/vessels_db
+    username: ${POSTGRES_USER:postgres}
+    password: ${POSTGRES_PASS:root}
+    driver-class-name: org.postgresql.Driver
+    jpa:
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQLDialect
